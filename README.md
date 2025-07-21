@@ -25,15 +25,19 @@ A simple and efficient backend API for managing cart items, built with **Node.js
 ---
 
 ## 📁 Project Structure
+## 📁 Project Structure
+
+```text
 restAPIs/
 ├── src/
-│ ├── features/
-│ │ └── cart/
-│ │ ├── cart.controller.js
-│ │ ├── cart.repository.js
-│ │ └── cart.route.js
-│ └── middleware/
-│ └── connection.js
+│   ├── features/
+│   │   └── cart/
+│   │       ├── cart.controller.js
+│   │       ├── cart.repository.js
+│   │       └── cart.route.js
+│   └── middleware/
+│       └── connection.js
 ├── .gitignore
 ├── package.json
 └── server.js
+
