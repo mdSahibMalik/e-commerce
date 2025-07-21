@@ -1,4 +1,4 @@
-# 🛒 Cart Management API (Node.js + MongoDB)
+# 🛒E-commerce Backend  (Node.js + Express + MongoDB)
 
 A simple and efficient backend API for managing cart items, built with **Node.js**, **Express**, and **MongoDB**. This project is part of a MERN stack e-commerce application, focusing on cart-related operations like adding, removing, and fetching items.
 
