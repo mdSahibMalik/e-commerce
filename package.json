@@ -1,0 +1,21 @@
+{
+  "name": "restapis",
+  "version": "1.0.0",
+  "description": "for rest api",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "ms malik",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongodb": "^6.17.0",
+    "nodemon": "^3.1.10",
+    "winston": "^3.17.0"
+  }
+}
