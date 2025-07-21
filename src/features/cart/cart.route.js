@@ -9,9 +9,13 @@ cartRouter.post('/', (req, res)=>{
 });
 
 //* get all cart items 
-cartRouter.get('/', cartItemsController.getCartData);
+cartRouter.get('/', (req, res)=>{
+    cartItemsController.getCart(req, res);
+});
 
 //* delete cart items
-cartRouter.delete('/', cartItemsController.deleteCartItems);
+cartRouter.delete('/', (req, res)=>{
+    cartItemsController.deleteCartItems(req, res);
+});
 
 module.exports = cartRouter;
