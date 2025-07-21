@@ -50,6 +50,8 @@ class CartItemsController {
         }
     }
 
+    //! delete cart item using cart model
+
     // deleteCartItems(req, res) {
     //     const  productId  = req.body;
     //     console.log('this is product id ' , productId);
