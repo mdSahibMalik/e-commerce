@@ -6,12 +6,15 @@ class CartItemRepository {
         this.collection = "cartItem";
     }
 
-    async addCartItem(userId, productId, quantity) {
+    async addCartItem( productId, quantity,userId) {
         try {
+            
             const db = getdb();
             const collection = await db.collection(this.collection);
-            const addedCartItem = await collection.insertOne(userId, productId, quantity);
+            const addedCartItem = await collection.updateOne({userId:new ObjectId(userId) , productId: new ObjectId(productId)},
+            {$inc: {quantity : quantity}},{upsert: true});
             return addedCartItem;
+            
         } catch (error) {
             console.log(error);
         }

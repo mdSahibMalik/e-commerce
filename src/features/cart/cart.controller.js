@@ -19,13 +19,14 @@ class CartItemsController {
         try {
             const { productId, quantity } = req.body;
             const userId = req.userId;
-            const result = await this.cartItemRepository.addCartItem({ productId: new ObjectId(productId), quantity, userId: new ObjectId(userId) });
-            if (result.acknowledged && result.insertedId) {
-                return res.status(201).send("Cart item added successfully.. ");
-            } else {
-                return res.status(400).send("something went wrong");
+            if (!ObjectId.isValid(productId)) {
+                res.status(400).send("product id is not valid");
             }
-
+            const result = await this.cartItemRepository.addCartItem(productId, quantity, userId);
+            if (result.acknowledged) {
+                return res.status(201).send("Cart item added successfully.. ");
+            }
+            return res.status(400).send("something went wrong");
         } catch (error) {
             console.log(error)
         }
@@ -67,7 +68,7 @@ class CartItemsController {
     async deleteCartItems(req, res) {
         const cartItemId = req.body;
         const userId = req.userId;
-        const deleteItem = await this.cartItemRepository.deleteCartItem( userId, cartItemId );
+        const deleteItem = await this.cartItemRepository.deleteCartItem(userId, cartItemId);
         if (deleteItem === "Deleted successfully") {
             return res.status(200).send("delete successfully..")
         } else {
