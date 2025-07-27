@@ -16,15 +16,11 @@ class OrderRepository {
             //* 1. get total amout
             session.startTransaction()
             const items = await this.getTotalAmount(userId, session);
-            // console.log(items);
             const finalTotalAmount = items.reduce((acc, item) => acc + item.totalAmount, 0);
-            console.log('this insie the get total amount', finalTotalAmount);
 
             //* 2. create order record 
-            const newOrder = new OrderModel(new ObjectId(userId), items, new Date());
-            const newaddedOrder = await db.collection(this.collection).insertOne(newOrder, { session });
-            console.log(newaddedOrder);
-            console.log('this is here');
+            const newOrder = new OrderModel(new ObjectId(userId), finalTotalAmount, new Date());
+            await db.collection(this.collection).insertOne(newOrder, { session });
 
             //* 3. reduce the product stock
             for (let item of items) {
