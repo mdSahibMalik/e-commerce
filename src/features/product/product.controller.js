@@ -16,8 +16,8 @@ class ProductController {
 
     async createProduct(req, res) {
         try {
-            const { name, desc, imageUrl, category, price, size } = req.body;
-            const newProduct = new ProductModel(name, desc, imageUrl, category, price, size);
+            const { name, desc, imageUrl, category,stock, price, size } = req.body;
+            const newProduct = new ProductModel(name, desc, imageUrl, category, price, stock, size);
             const result = await this.productRepository.addProduct(newProduct);
             res.status(200).send(result);
         } catch (error) {

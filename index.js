@@ -10,6 +10,7 @@ app.use(express.urlencoded({extended: true}));
 const jwtAuth = require('./src/middleware/authJWT.middleware.js');
 const logerMiddlware = require('./src/middleware/logger.middleware.js');
 const {mongoConnection} = require('./src/middleware/connection.js');
+const orderRouter = require('./src/features/order/order.route.js');
 
 
 // app.get('/', (req, res)=>{
@@ -26,6 +27,8 @@ app.use('/api/product',logerMiddlware,jwtAuth,productRouter);
 
 //* api for cart 
 app.use('/api/cart',logerMiddlware,jwtAuth, cartRouter);
+//* api for cart 
+app.use('/api/order',logerMiddlware,jwtAuth, orderRouter);
 
 //* if any api does not mathed
 app.use((req,res)=>{

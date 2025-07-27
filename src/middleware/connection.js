@@ -1,17 +1,20 @@
 const { MongoClient } = require('mongodb');
 
-const url = "mongodb://localhost:27017/ecommerce";
-let clieneInstence;
+const url = "mongodb://127.0.0.1:27017/ecommerce?replicaSet=oertest";
+let clientInstence;
 const mongoConnection = async () => {
   await MongoClient.connect(url)
       .then(client => {
-         clieneInstence = client;
+         clientInstence = client;
          console.log('MongoDB connected');
       })
       .catch(err => console.log(err));
 
 }
-const getdb = ()=>{
-   return clieneInstence.db();
+const getClient = ()=>{
+   return clientInstence
 }
-module.exports = {mongoConnection, getdb} ;
+const getdb = ()=>{
+   return clientInstence.db();
+}
+module.exports = {mongoConnection, getdb, getClient} ;

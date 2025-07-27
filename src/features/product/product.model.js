@@ -1,20 +1,21 @@
 const UserModel = require("../user/user.model.js");
 class ProductModel {
-    constructor(name, desc, imageUrl, category, price, size,id) {
+    constructor(name, desc, imageUrl, category, price,stock, size,id) {
         this._id = id,
             this.name = name,
             this.desc = desc,
             this.imageUrl = imageUrl,
             this.category = category,
             this.price = price,
+            this.stock = stock,
             this.size = size.split(',')
     }
     static getAll() {
         return products;
     }
 
-    static addProduct(name, desc, imageUrl, category, price, size) {
-        const newProduct = new ProductModel(name, desc, imageUrl, category, price, size);
+    static addProduct(name, desc, imageUrl, category, price, stock, size) {
+        const newProduct = new ProductModel(name, desc, imageUrl, category, price,stock, size);
         products.push(newProduct);
         return newProduct;
     }
