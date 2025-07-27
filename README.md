@@ -25,7 +25,6 @@ A simple and efficient backend API for managing cart items, built with **Node.js
 ---
 
 ## 📁 Project Structure
-## 📁 Project Structure
 
 ```text
 restAPIs/
